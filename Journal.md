@@ -19,3 +19,11 @@ Phase 3: The Safety Protocol
 In this phase, I created a function called attemptEntry(key) that uses try, catch, and finally to handle errors. The try block attempts to access the vault, while the catch block checks which type of error occurred using instanceof. It displays a different message depending on the error.
 
 The finally block always runs whether the vault access succeeds or fails. A real-world example would be closing a file after a program finishes using it. This helps prevent resources from being left open and keeps the program stable.
+
+------------------
+
+Phase 4: The Audit Suite
+
+In this phase, I created automated tests to check whether the vault works correctly. I tested a correct password, an undefined key, a NaN key, and an incorrect password. The tests check whether the expected results or custom errors occur.
+
+Automated testing is more reliable than manual testing because it can run the same checks repeatedly and consistently. I learned that when an error is thrown, normal execution stops and moves to the catch block, where the error can be checked and handled.
