@@ -46,8 +46,57 @@ function attemptEntry(key) {
     }
 }
 
-// Test the vault
+// Automated test function
+function testVault(description, testFunction) {
+    try {
+        if (testFunction()) {
+            console.log("PASS: " + description);
+        } else {
+            console.log("FAIL: " + description);
+        }
+    } catch (e) {
+        console.log("FAIL: " + description);
+        console.log(e.message);
+    }
+}
+
+// Test 1: Correct key
+testVault("Correct key grants access", function() {
+    return accessVault("SECRET_123") === "Access Granted";
+});
+
+// Test 2: Undefined key
+testVault("Undefined key throws InvalidKeyError", function() {
+    try {
+        accessVault(undefined);
+        return false;
+    } catch (e) {
+        return e instanceof InvalidKeyError;
+    }
+});
+
+// Test 3: NaN key
+testVault("NaN key throws InvalidKeyError", function() {
+    try {
+        accessVault(NaN);
+        return false;
+    } catch (e) {
+        return e instanceof InvalidKeyError;
+    }
+});
+
+// Test 4: Incorrect key
+testVault("Wrong key throws VaultLockedError", function() {
+    try {
+        accessVault("WRONG_KEY");
+        return false;
+    } catch (e) {
+        return e instanceof VaultLockedError;
+    }
+});
+
+// Run the regular vault demonstrations
+console.log("\n--- Vault Demonstrations ---");
 attemptEntry("SECRET_123");
 attemptEntry("WRONG_KEY");
 attemptEntry(undefined);
-attemptEntry(NaN);
