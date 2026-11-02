@@ -11,3 +11,11 @@ Phase 2: The Security Layer
 In this phase, I created two custom error classes called InvalidKeyError and VaultLockedError. I updated the accessVault() function to throw an error when the key is missing, corrupted, or incorrect.
 
 Returning a value is different from throwing an error because returning gives back a normal result, while throwing signals that something went wrong. A developer might prefer custom error classes because they make it easier to identify and handle different types of problems.
+
+------------------
+
+Phase 3: The Safety Protocol
+
+In this phase, I created a function called attemptEntry(key) that uses try, catch, and finally to handle errors. The try block attempts to access the vault, while the catch block checks which type of error occurred using instanceof. It displays a different message depending on the error.
+
+The finally block always runs whether the vault access succeeds or fails. A real-world example would be closing a file after a program finishes using it. This helps prevent resources from being left open and keeps the program stable.
