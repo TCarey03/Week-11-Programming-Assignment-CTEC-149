@@ -27,3 +27,13 @@ Phase 4: The Audit Suite
 In this phase, I created automated tests to check whether the vault works correctly. I tested a correct password, an undefined key, a NaN key, and an incorrect password. The tests check whether the expected results or custom errors occur.
 
 Automated testing is more reliable than manual testing because it can run the same checks repeatedly and consistently. I learned that when an error is thrown, normal execution stops and moves to the catch block, where the error can be checked and handled.
+
+------------------
+
+Phase 5: Validation & Reflection
+
+In this phase, I manually tested my vault using different inputs, including empty strings, numbers, null, objects, and arrays. The program handled these inputs without crashing because the try/catch/finally blocks caught the errors.
+
+I learned that testing different types of inputs is important because users may enter unexpected values. My custom error classes helped identify different problems, and the finally block ensured that every vault attempt was completed.
+
+I did not make major changes because the program handled the test cases as expected.
