@@ -100,3 +100,13 @@ console.log("\n--- Vault Demonstrations ---");
 attemptEntry("SECRET_123");
 attemptEntry("WRONG_KEY");
 attemptEntry(undefined);
+
+console.log("\n--- Phase 5: Manual Testing ---");
+
+// Test different types of inputs
+attemptEntry("");
+attemptEntry(12345);
+attemptEntry(null);
+attemptEntry({});
+attemptEntry([]);
+attemptEntry("SECRET_123");
